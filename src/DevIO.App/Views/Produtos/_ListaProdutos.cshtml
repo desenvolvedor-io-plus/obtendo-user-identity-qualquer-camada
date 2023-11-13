@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DevIO.App.ViewModels.ProdutoViewModel>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+                </td>
+                <td>
+                    @item.Valor.ToString("C")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ativo)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-warning" asp-controller="Produtos" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam> </a>
+                    <a class="btn btn-info" asp-controller="Produtos" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                    <a class="btn btn-danger" asp-controller="Produtos" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@using DevIO.App.Components
+@model DevIO.App.ViewModels.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Excluir Fornecedor";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<vc:Summary></vc:Summary>
+
+<div>
+    <h4>Esta ação será permanente!</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Documento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Documento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-info" asp-action="Index">Voltar</a>
+    </form>
+</div>
+
+<partial name="_DetalhesEndereco" />

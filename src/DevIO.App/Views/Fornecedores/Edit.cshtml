@@ -1,0 +1,67 @@
+﻿@model DevIO.App.ViewModels.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Editar Fornecedor";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+
+<form asp-action="Edit">
+
+    <vc:Summary></vc:Summary>
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+
+            <label asp-for="Nome"></label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+
+            <label asp-for="Documento"></label>
+            <input asp-for="Documento" class="form-control" />
+            <span asp-validation-for="Documento" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-group col-md-6">
+
+            <label asp-for="TipoFornecedor"></label>
+            <div>
+                <input type="radio" value="1" asp-for="TipoFornecedor" checked="@(Model.TipoFornecedor == 1)" /> Pessoa Física
+                <input type="radio" value="2" asp-for="TipoFornecedor" checked="@(Model.TipoFornecedor == 2)" /> Pessoa Jurídica
+            </div>
+            <div>
+                &nbsp;
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+</form>
+
+<div id="EnderecoTarget">
+    <partial name="_DetalhesEndereco" />
+</div>
+
+<hr />
+<h4>Produtos</h4>
+<div>
+    <partial name="../Produtos/_ListaProdutos" model="@Model.Produtos" />
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

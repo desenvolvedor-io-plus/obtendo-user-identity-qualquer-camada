@@ -1,0 +1,64 @@
+﻿@model DevIO.App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Excluir " + Model.Nome;
+}
+
+<h4 style="padding-top: 50px">@ViewData["Title"] </h4>
+
+<h5>Você tem certeza disso?</h5>
+
+<div class="row">
+
+    <div class="col-md-6">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.FornecedorId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fornecedor.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+            <dd>
+                @Model.Valor.ToString("C")
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataCadastro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ativo)
+            </dd>
+        </dl>
+
+        <div>
+            <form asp-action="Delete">
+                
+                <vc:Summary></vc:Summary>
+
+                <input type="hidden" asp-for="Id"/>
+                <input type="submit" value="Excluir" class="btn btn-danger"/>
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

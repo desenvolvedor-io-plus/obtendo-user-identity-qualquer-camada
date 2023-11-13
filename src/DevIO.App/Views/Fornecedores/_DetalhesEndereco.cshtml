@@ -1,0 +1,64 @@
+﻿@model DevIO.App.ViewModels.FornecedorViewModel
+
+<div style="padding-top: 20px">
+    <div>
+        <hr />
+        <h4>Endereço</h4>
+    </div>
+
+    @if (Model != null)
+    {
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Logradouro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Numero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Complemento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Bairro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Cep)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Cidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Estado)
+                </th>
+            </tr>
+            </thead>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Logradouro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Complemento)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Endereco.Estado)
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>
